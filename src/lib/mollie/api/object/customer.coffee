@@ -30,11 +30,11 @@
 ###
 module.exports = class Customer
 	constructor: () ->
-		this.resource = null;
-		this.id = null;
-		this.name = null;
-		this.email = null;
-		this.locale = null;
-		this.metadata = null;
+		this.resource            = null;
+		this.id                  = null;
+		this.name                = null;
+		this.email               = null;
+		this.locale              = null;
+		this.metadata            = null;
 		this.recentlyUsedMethods = null;
-		this.createdDatetime = null;
+		this.createdDatetime     = null;

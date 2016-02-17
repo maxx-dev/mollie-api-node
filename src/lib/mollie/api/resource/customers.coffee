@@ -28,9 +28,9 @@
   @copyright   Mollie B.V.
   @link        https://www.mollie.nl
 ###
-Base = require("./base");
+Base     = require("./base");
 Customer = require("../object/customer");
 
 module.exports = class Customers extends Base
 	this.resource = "customers";
-	this.object = Customer;
+	this.object   = Customer;
