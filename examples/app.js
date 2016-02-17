@@ -18,7 +18,7 @@
     path = url.parse(request.url).pathname;
 
     /*
-      Load requested example.
+    	  Load requested example.
      */
     try {
       example = require("." + path);
@@ -38,5 +38,7 @@
   });
 
   app.listen(8888);
+
+  console.log("==> http://localhost:8888");
 
 }).call(this);
