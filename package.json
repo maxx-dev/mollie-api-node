@@ -18,7 +18,10 @@
   "main": "./lib/mollie",
   "repository": "git://github.com/mollie/mollie-api-node",
   "scripts": {
-    "prepublish": "npm prune"
+    "prepublish": "npm prune",
+    "start": "node examples/app.js",
+    "watch": "./node_modules/.bin/coffee -c -w -o . src",
+    "build": "./node_modules/.bin/coffee -c -o . src"
   },
   "engines": {
     "node": ">= 0.8.0"
