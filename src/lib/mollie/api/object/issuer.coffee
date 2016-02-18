@@ -30,7 +30,7 @@
 ###
 module.exports = class Issuer
 	constructor: () ->
-		this.resource = null;
+		this.resource = "issuer";
 		this.id       = null;
 		this.name     = null;
 		this.method   = null;

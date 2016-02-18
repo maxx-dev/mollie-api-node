@@ -103,7 +103,8 @@ module.exports = class Base
 		return this.constructor.resource;
 
 	withParent: (parent) ->
-		this.parentId = parent.id;
+		return this.withParentId(parent.id);
 
 	withParentId: (parentId) ->
 		this.parentId = parentId;
+		return this;

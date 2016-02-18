@@ -30,7 +30,7 @@
 ###
 module.exports = class Customer
 	constructor: () ->
-		this.resource            = null;
+		this.resource            = "customer";
 		this.id                  = null;
 		this.name                = null;
 		this.email               = null;

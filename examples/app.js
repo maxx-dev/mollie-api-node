@@ -33,6 +33,10 @@
       response.write('<a href="./4-ideal-payment">Try example 4</a><br>');
       response.write('<a href="./5-payments-history">Try example 5</a><br>');
       response.write('<a href="./6-list-available-methods">Try example 6</a><br>');
+      response.write('<a href="./07-refund-payment">Try example 7</a><br>');
+      response.write('<a href="./11-new-customer">Try example 11</a><br>');
+      response.write('<a href="./12-new-customer-payment">Try example 12</a><br>');
+      response.write('<a href="./13-customer-payments-history">Try example 13</a><br>');
       return response.end();
     }
   });

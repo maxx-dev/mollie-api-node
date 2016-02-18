@@ -33,10 +33,12 @@ fs    = require("fs");
 https = require("https");
 os    = require("os");
 
-Payments  = require("./resource/payments");
-Methods   = require("./resource/methods");
-Issuers   = require("./resource/issuers");
-Customers = require("./resource/customers");
+Payments          = require("./resource/payments");
+PaymentsRefunds   = require("./resource/payments/refunds");
+Methods           = require("./resource/methods");
+Issuers           = require("./resource/issuers");
+Customers         = require("./resource/customers");
+CustomersPayments = require("./resource/customers/payments");
 
 module.exports = class Client
 	this.version = "1.1.0";
@@ -48,10 +50,12 @@ module.exports = class Client
 			key: "",
 		};
 
-		this.payments  = new Payments(this);
-		this.methods   = new Methods(this);
-		this.issuers   = new Issuers(this);
-		this.customers = new Customers(this);
+		this.payments           = new Payments(this);
+		this.payments_refunds   = new PaymentsRefunds(this);
+		this.methods            = new Methods(this);
+		this.issuers            = new Issuers(this);
+		this.customers          = new Customers(this);
+		this.customers_payments = new CustomersPayments(this);
 
 	setApiEndpoint: (endpoint) ->
 		this.config.endpoint = endpoint;

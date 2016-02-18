@@ -42,6 +42,7 @@ module.exports = class Method
 	this.PODIUMCADEAUKAART = "podiumcadeaukaart";
 
 	constructor: () ->
+		this.resource    = "method";
 		this.id          = null;
 		this.description = null;
 		this.amount      = {

@@ -35,7 +35,7 @@ module.exports = class Payment
 	this.STATUS_PAID      = "paid";
 
 	constructor: () ->
-		this.resource          = null;
+		this.resource          = "payment";
 		this.id                = null;
 		this.mode              = null;
 		this.amount            = null;

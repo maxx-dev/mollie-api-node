@@ -5,9 +5,9 @@
  */
 
 (function() {
-  var example, fs, mollie;
+  var Mollie, example, fs;
 
-  mollie = require("./mollie");
+  Mollie = require("../lib/mollie");
 
   fs = require("fs");
 
@@ -15,20 +15,30 @@
     function example(request, response) {
 
       /*
-        Generate a unique order id for this example. It is important to include this unique attribute
-        in the redirectUrl (below) so a proper return page can be shown to the customer.
+      		  Initialize the Mollie API library with your API key.
+      		  See: https://www.mollie.nl/beheer/account/profielen/
        */
-      var orderId;
+      var customer, mollie, orderId;
+      mollie = new Mollie.API.Client();
+      mollie.setApiKey("test_V6Qxi9pKA3PrdDcBpyCDnRWYbtBJpG");
+
+      /*
+      			Retrieve the last created customer for this example.
+      			If no customers are created yet, run example 11.
+       */
+      customer = mollie.customers.all(0, 1).data[0];
+
+      /*
+      		  Generate a unique order id for this example. It is important to include this unique attribute
+      		  in the redirectUrl (below) so a proper return page can be shown to the customer.
+       */
       orderId = new Date().getTime();
 
       /*
-        Payment parameters:
-          amount        Amount in EUROs. This example creates a € 10,- payment.
-          description   Description of the payment.
-          redirectUrl   Redirect location. The customer will be redirected there after the payment.
-          metadata      Custom metadata that is stored with the payment.
+      			Customer Payment creation parameters:
+      			See: https://www.mollie.com/en/docs/reference/customers/create-payment
        */
-      mollie.payments.create({
+      mollie.customers_payments.withParent(customer).create({
         amount: 10.00,
         description: "My first API payment",
         redirectUrl: "http://" + request.headers.host + "/3-return-page?orderId=" + orderId,
@@ -43,12 +53,12 @@
           }
 
           /*
-            In this example we store the order with its payment status in a database.
+          				  In this example we store the order with its payment status in a database.
            */
           _this.databaseWrite(orderId, payment.status);
 
           /*
-            Send the customer off to complete the payment.
+          				  Send the customer off to complete the payment.
            */
           response.writeHead(302, {
             Location: payment.getPaymentUrl()
@@ -60,7 +70,7 @@
 
 
     /*
-      NOTE: This example uses a text file as a database. Please use a real database like MySQL in production code.
+    	  NOTE: This example uses a text file as a database. Please use a real database like MySQL in production code.
      */
 
     example.prototype.databaseWrite = function(orderId, paymentStatus) {
