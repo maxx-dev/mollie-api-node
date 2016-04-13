@@ -30,9 +30,11 @@
 ###
 module.exports = class Payment
 	this.STATUS_OPEN      = "open";
+	this.STATUS_PENDING   = "pending";
 	this.STATUS_CANCELLED = "cancelled";
 	this.STATUS_EXPIRED   = "expired";
 	this.STATUS_PAID      = "paid";
+	this.STATUS_FAILED    = "failed";
 
 	this.RECURRINGTYPE_NONE      = null;
 	this.RECURRINGTYPE_FIRST     = "first";
@@ -58,8 +60,9 @@ module.exports = class Payment
 		this.locale            = null;
 		this.profileId         = null;
 		this.customerId        = null;
-		this.settlementId      = null;
 		this.recurringType     = null;
+		this.mandateId         = null;
+		this.settlementId      = null;
 		this.links             = {
 			paymentUrl: null,
 			redirectUrl: null,
