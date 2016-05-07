@@ -27,7 +27,7 @@ class example
 					amount: 10.00,
 					description: "An on-demand recurring payment",
 					# Flag this payment as a recurring payment.
-					recurringType: Mollie.API.Object.Payment.RECURRINGTYPE_FIRST
+					recurringType: "recurring"
 				}, (payment) =>
 					if (payment.error)
 						console.error(payment.error);

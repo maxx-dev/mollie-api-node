@@ -36,7 +36,7 @@
           return mollie.customers_payments.withParent(customer).create({
             amount: 10.00,
             description: "An on-demand recurring payment",
-            recurringType: Mollie.API.Object.Payment.RECURRINGTYPE_FIRST
+            recurringType: "recurring"
           }, function(payment) {
             if (payment.error) {
               console.error(payment.error);

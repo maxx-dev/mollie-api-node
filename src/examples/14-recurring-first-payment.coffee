@@ -28,7 +28,7 @@ class example
 					description: "A first payment for recurring",
 					redirectUrl: "http://#{request.headers.host}/3-return-page?orderId=#{orderId}",
 					# Flag this payment as a first payment to allow recurring payments later.
-					recurringType: Mollie.API.Object.Payment.RECURRINGTYPE_FIRST
+					recurringType: "first"
 				}, (payment) =>
 					if (payment.error)
 						console.error(payment.error);

@@ -29,7 +29,6 @@
   @link        https://www.mollie.com
 ###
 module.exports = class Mandate
-	this.STATUS_PENDING = "pending";
 	this.STATUS_VALID   = "valid";
 	this.STATUS_INVALID = "invalid";
 

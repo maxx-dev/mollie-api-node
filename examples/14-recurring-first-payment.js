@@ -37,7 +37,7 @@
             amount: 0.01,
             description: "A first payment for recurring",
             redirectUrl: "http://" + request.headers.host + "/3-return-page?orderId=" + orderId,
-            recurringType: Mollie.API.Object.Payment.RECURRINGTYPE_FIRST
+            recurringType: "first"
           }, function(payment) {
             if (payment.error) {
               console.error(payment.error);

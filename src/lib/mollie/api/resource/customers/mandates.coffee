@@ -28,8 +28,8 @@
   @copyright   Mollie B.V.
   @link        https://www.mollie.com
 ###
-Base    = require("./base");
-Mandate = require("../object/mandate");
+Base    = require("../base");
+Mandate = require("../../object/mandate");
 
 module.exports = class Mandates extends Base
 	this.resource = "customers_mandates";
