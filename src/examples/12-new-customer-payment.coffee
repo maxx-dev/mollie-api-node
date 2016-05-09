@@ -1,5 +1,5 @@
 ###
-  Example 12 - How to create a new Customer Payment.
+	Example 12 - How to create a new Customer Payment.
 ###
 mollie = require("./mollie");
 fs     = require("fs");
@@ -14,8 +14,8 @@ class example
 			customer = customers[0];
 
 			###
-			  Generate a unique order id for this example. It is important to include this unique attribute
-			  in the redirectUrl (below) so a proper return page can be shown to the customer.
+				Generate a unique order id for this example. It is important to include this unique attribute
+				in the redirectUrl (below) so a proper return page can be shown to the customer.
 			###
 			orderId = new Date().getTime()
 
@@ -36,12 +36,12 @@ class example
 						return response.end();
 
 					###
-					  In this example we store the order with its payment status in a database.
+						In this example we store the order with its payment status in a database.
 					###
 					@databaseWrite(orderId, payment.status);
 
 					###
-					  Send the customer off to complete the payment.
+						Send the customer off to complete the payment.
 					###
 					response.writeHead(302, {Location: payment.getPaymentUrl()});
 					response.end();
@@ -49,7 +49,7 @@ class example
 		);
 
 	###
-	  NOTE: This example uses a text file as a database. Please use a real database like MySQL in production code.
+		NOTE: This example uses a text file as a database. Please use a real database like MySQL in production code.
 	###
 	databaseWrite: (orderId, paymentStatus) ->
 		orderId = parseInt(orderId);
